@@ -2,19 +2,13 @@ import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import {Platform} from 'react-native'
 import Home from "../screens/Home/Home";
-import Post from "../screens/Post/Post";
-import Posts from "../screens/Posts/Posts";
-import Add from "../screens/Add/Add";
-import Change from "../screens/Change/Change";
+import Task1 from "../screens/Tasks/Task1";
 import {THEME} from '../theme'
 
 const PostNavigator = createStackNavigator(
     {
         Home: Home,
-        Post: Post,
-        Posts: Posts,
-        Add: Add,
-        Change: Change,
+        Task1: Task1,
     },
     {
         initialRouteName: 'Home',
