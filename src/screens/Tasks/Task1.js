@@ -1,15 +1,15 @@
-import React, { Component }  from "react";
+import React, {useState} from "react";
 import {View, Text, StyleSheet, Button} from 'react-native'
 
 
-class Task1 extends Component {
-    trueAnswer() {
-         alert('правильный ответ')
+const Task1 =() =>  {
+    const [answer, changeAnswer] = useState(false);
+    function trueAnswer() {
+        changeAnswer(true)
     }
-    falseAnswer() {
-            alert('неправильный ответ')
+    function falseAnswer() {
+        changeAnswer(false)
     }
-    render() {
     return (
         <View style={styles.center}>
             <Text>
@@ -18,11 +18,15 @@ class Task1 extends Component {
             <Text>
                 Что должен решить претор?
             </Text>
-            <Button title='Зей прав, снимаем облицовку'    onPress={this.trueAnswer}/>
-            <Button title='Гай прав, облицовку не снимаем'    onPress={this.falseAnswer}/>
+            <Button title='Зей прав, снимаем облицовку'    onPress={trueAnswer}/>
+            <Button title='Гай прав, облицовку не снимаем'    onPress={falseAnswer}/>
+            {answer && <View style={styles.center}>
+                <Text>
+                    Решение неправильное... Прав Гай, потому что это сложная вещь
+                </Text>
+            </View> }
         </View>
     )
-}
 };
 
 Task1.navigationOptions = {
