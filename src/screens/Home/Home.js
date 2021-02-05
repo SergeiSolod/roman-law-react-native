@@ -9,11 +9,8 @@ const Home = (props) => {
             <Text style={styles.headerText}>
                 Вещи
             </Text>
-            <CButton onPress={() =>  props.navigation.navigate('HouseCladding')} title={'Задача про облицовку'}/>
-            <CButton onPress={() =>  props.navigation.navigate('Rock')} title={'Задача про облицовку'}/>
-            <CButton onPress={() =>  props.navigation.navigate('Task1')} title={'Задача про облицовку'}/>
-            <CButton onPress={() =>  props.navigation.navigate('Task1')} title={'Задача про облицовку'}/>
-            <CButton onPress={() =>  props.navigation.navigate('Task1')} title={'Задача про облицовку'}/>
+            <CButton onPress={() =>  props.navigation.navigate('HouseCladding')} title={'Облицовка дома'}/>
+            <CButton onPress={() =>  props.navigation.navigate('PreciousStone')} title={'Драгоценный камень'}/>
         </View>
     );
 };
