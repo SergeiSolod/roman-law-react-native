@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {View, Text, StyleSheet, Button,SafeAreaView, ScrollView, TouchableOpacity} from 'react-native'
 import { THEME } from '../../theme'
 
-const Task1 = () => {
+const HouseCladding = () => {
     const [answer, changeAnswer] = useState(false);
     const [answerBool, changeAnswerBool] = useState(false);
     const [openInfo, changeOpenInfo] = useState(false);
@@ -48,9 +48,9 @@ const Task1 = () => {
 
             {!answer &&
             <View>
-                <Button color={THEME.FIRST_BUTTON_COLOR} title='Зей прав, снимаем облицовку' onPress={trueAnswerFunction}/>
+                <Button  title='Зей прав, снимаем облицовку' onPress={trueAnswerFunction}/>
             <View style={styles.secondButton}>
-            <Button  color={THEME.SECOND_BUTTON_COLOR} title='Гай прав, облицовку не снимаем' onPress={falseAnswerFunction}/>
+            <Button  title='Гай прав, облицовку не снимаем' onPress={falseAnswerFunction}/>
             </View>
             </View>
             }
@@ -72,7 +72,7 @@ const Task1 = () => {
 
             </View>}
             <View style={styles.thirdButton}>
-            <Button  color={THEME.THIRD_BUTTON_COLOR} title={openHelp ? 'Закрыть подсказку' : 'Посмотреть подсказку'} onPress={openHelpFunction}/>
+            <Button  title={openHelp ? 'Закрыть подсказку' : 'Посмотреть подсказку'} onPress={openHelpFunction}/>
             </View>
             {openHelp && <View style={styles.textInfoWrapper}>
                 <Text style={styles.textInfo}>
@@ -80,7 +80,7 @@ const Task1 = () => {
                 </Text>
             </View>}
 
-            <Button  color={THEME.FOURTH_BUTTON_COLOR} title={openInfo ? 'Закрыть теорию' : 'Посмотреть теорию'} onPress={openInfoFunction}/>
+            <Button  title={openInfo ? 'Закрыть теорию' : 'Посмотреть теорию'} onPress={openInfoFunction}/>
 
 
             {openInfo && <View style={styles.textInfoWrapper}>
@@ -112,8 +112,8 @@ const Task1 = () => {
     )
 };
 
-Task1.navigationOptions = {
-    headerTitle: 'Задача 1 (облицовка)'
+HouseCladding.navigationOptions = {
+    headerTitle: 'Облицовка дома'
 }
 
 const styles = StyleSheet.create({
@@ -156,4 +156,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Task1;
+export default HouseCladding;
