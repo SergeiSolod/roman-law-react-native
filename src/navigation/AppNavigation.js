@@ -10,7 +10,7 @@ const PostNavigator = createStackNavigator(
     {
         Home: Home,
         HouseCladding: HouseCladding,
-        Rock: PreciousStone,
+        PreciousStone: PreciousStone,
     },
     {
         initialRouteName: 'Home',
