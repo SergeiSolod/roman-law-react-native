@@ -6,7 +6,7 @@ const ThingsTheory = () => {
         <SafeAreaView>
             <ScrollView>
                 <View style={styles.textInfoWrapper}>
-                    <Text style={styles.textQuestion}>
+                    <Text style={styles.textHeader}>
                        Какие бывают вещи
                     </Text>
                     <Text style={styles.textInfo}>
@@ -41,14 +41,15 @@ ThingsTheory.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
-    textQuestion: {
-        fontSize: 20,
+    textHeader: {
+        fontSize: 21,
         textAlign: 'center',
         fontWeight: 'bold'
     },
     textInfoWrapper: {
+        marginTop: 13,
         marginRight: 10,
-        marginBottom: 5,
+        marginBottom: 8,
     },
     textInfo: {
         fontSize: 19,
