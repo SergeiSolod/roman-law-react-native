@@ -9,6 +9,7 @@ const Home = (props) => {
             <Text style={styles.headerText}>
                 Вещи
             </Text>
+            <CButton onPress={() =>  props.navigation.navigate('ThingsTheory')} title={'Теория: вещи'}/>
             <CButton onPress={() =>  props.navigation.navigate('HouseCladding')} title={'Облицовка дома'}/>
             <CButton onPress={() =>  props.navigation.navigate('PreciousStone')} title={'Драгоценный камень'}/>
         </View>
