@@ -3,12 +3,15 @@ import {createStackNavigator} from 'react-navigation-stack'
 import {Platform} from 'react-native'
 import Home from "../screens/Home/Home";
 import HouseCladding from "../screens/Things/HouseCladding";
-import {THEME} from '../theme'
 import PreciousStone from "../screens/Things/PreciousStone";
+import ThingsTheory from "../screens/Things/ThingsTheory";
+import {THEME} from '../theme'
+
 
 const PostNavigator = createStackNavigator(
     {
         Home: Home,
+        ThingsTheory: ThingsTheory,
         HouseCladding: HouseCladding,
         PreciousStone: PreciousStone,
     },
