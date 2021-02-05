@@ -95,7 +95,9 @@ const styles = StyleSheet.create({
     textQuestion: {
         fontSize: 20,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 6,
+        marginBottom: 8,
     },
     textInfoCorrectly: {
         fontSize: 20,
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     textInfoWrapper: {
+        marginTop: 10,
         marginRight: 10,
         marginBottom: 5,
     },
