@@ -2,15 +2,15 @@ import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import {Platform} from 'react-native'
 import Home from "../screens/Home/Home";
-import Task1 from "../screens/Tasks/Task1";
+import HouseCladding from "../screens/Things/HouseCladding";
 import {THEME} from '../theme'
-import Task2 from "../screens/Tasks/Task2";
+import PreciousStone from "../screens/Things/PreciousStone";
 
 const PostNavigator = createStackNavigator(
     {
         Home: Home,
-        Task1: Task1,
-        Task2: Task2,
+        HouseCladding: HouseCladding,
+        Rock: PreciousStone,
     },
     {
         initialRouteName: 'Home',
