@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {View, Text, StyleSheet, Button,SafeAreaView, ScrollView, TouchableOpacity} from 'react-native'
 import { THEME } from '../../theme'
 
-const Task2 = () => {
+const PreciousStone = () => {
     const [answer, changeAnswer] = useState(false);
     const [answerBool, changeAnswerBool] = useState(false);
     const [openInfo, changeOpenInfo] = useState(false);
@@ -47,9 +47,9 @@ const Task2 = () => {
 
             {!answer &&
             <View>
-                <Button color={THEME.FIRST_BUTTON_COLOR} title='Прав первый брат, не делим' onPress={trueAnswerFunction}/>
+                <Button  title='Прав первый брат, не делим' onPress={trueAnswerFunction}/>
             <View style={styles.secondButton}>
-            <Button  color={THEME.SECOND_BUTTON_COLOR} title='Прав второй брат, делим' onPress={falseAnswerFunction}/>
+            <Button   title='Прав второй брат, делим' onPress={falseAnswerFunction}/>
             </View>
             </View>
             }
@@ -64,7 +64,7 @@ const Task2 = () => {
 
             </View>}
             <View style={styles.thirdButton}>
-            <Button  color={THEME.THIRD_BUTTON_COLOR} title={openHelp ? 'Закрыть подсказку' : 'Посмотреть подсказку'} onPress={openHelpFunction}/>
+            <Button  title={openHelp ? 'Закрыть подсказку' : 'Посмотреть подсказку'} onPress={openHelpFunction}/>
             </View>
             {openHelp && <View style={styles.textInfoWrapper}>
                 <Text style={styles.textInfo}>
@@ -72,7 +72,7 @@ const Task2 = () => {
                 </Text>
             </View>}
 
-            <Button  color={THEME.FOURTH_BUTTON_COLOR} title={openInfo ? 'Закрыть теорию' : 'Посмотреть теорию'} onPress={openInfoFunction}/>
+            <Button  title={openInfo ? 'Закрыть теорию' : 'Посмотреть теорию'} onPress={openInfoFunction}/>
 
 
             {openInfo && <View style={styles.textInfoWrapper}>
@@ -104,8 +104,8 @@ const Task2 = () => {
     )
 };
 
-Task2.navigationOptions = {
-    headerTitle: 'Задача 2 (камень)'
+PreciousStone.navigationOptions = {
+    headerTitle: 'Драгоценный камень'
 }
 
 const styles = StyleSheet.create({
@@ -148,4 +148,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Task2;
+export default PreciousStone;
