@@ -4,38 +4,15 @@ import { THEME } from '../../theme'
 import CButton from "../../components/CButton";
 
 const HouseCladding = () => {
-    const [openTheory, changeOpenTheory] = useState(false);
 
-    // const [answer, changeAnswer] = useState(false);
-    // const [answerBool, changeAnswerBool] = useState(false);
-    //
-    // const [openHelp, changeOpenHelp] = useState(false);
-    //
-    // function trueAnswerFunction() {
-    //     changeAnswer(true)
-    //     changeAnswerBool(true)
-    // }
-    //
-    // function falseAnswerFunction() {
-    //     changeAnswer(false)
-    //     changeAnswerBool(false)
-    // }
-    //
-    // function openInfoFunction() {
-    //     if (openInfo) {
-    //         changeOpenInfo(false)
-    //     } else {
-    //         changeOpenInfo(true)
-    //     }
-    // }
-    //
-    // function openHelpFunction() {
-    //     if (openHelp) {
-    //         changeOpenHelp(false)
-    //     } else {
-    //         changeOpenHelp(true)
-    //     }
-    // }
+    const [openTheory, changeOpenTheory] = useState(false);
+    const [answer, changeAnswer] = useState(false);
+    const [answerBool, changeAnswerBool] = useState(false);
+
+  function answerFunction(bool) {
+      changeAnswerBool(bool)
+      changeAnswer(true)
+  }
 
     return (
         <SafeAreaView>
@@ -49,44 +26,37 @@ const HouseCladding = () => {
                 Как следует решить дело?
             </Text>
         </View>
-            {/*{!answer &&*/}
-            {/*<View>*/}
-            {/*    <Button  title='Зей прав, снимаем облицовку' onPress={trueAnswerFunction}/>*/}
-            {/*<View style={styles.secondButton}>*/}
-            {/*<Button  title='Гай прав, облицовку не снимаем' onPress={falseAnswerFunction}/>*/}
-            {/*</View>*/}
-            {/*</View>*/}
-            {/*}*/}
 
-            {/*{answer && <View style={styles.center}>*/}
-            {/*    {answerBool ? <Text style={styles.textInfo}>*/}
-            {/*        Решение правильное, молодец. Если ты прочитал теорию, то сразу понял, что дом - это собирательная вещь,*/}
-            {/*         облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома,*/}
-            {/*        это и есть по сути дом, поэтому Гай конечно же прав. То же самое, если бы Зей сказал, что не передаст крышу*/}
-            {/*        или стену, она видите ли дорогая. Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,*/}
-            {/*        он не является частью дома и его продают отдельно, его требовать нельзя.*/}
-            {/*    </Text> : <Text style={styles.textInfo}>*/}
-            {/*        Решение неправильное... Если ты прочитал теорию, то сразу понял, что дом - это собирательная вещь,*/}
-            {/*        облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома,*/}
-            {/*        это и есть по сути дом, поэтому Гай конечно же прав. То же самое, если бы Зей сказал, что не передаст крышу*/}
-            {/*        или стену, она видите ли дорогая. Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,*/}
-            {/*        он не является частью дома и его продают отдельно, его требовать нельзя.*/}
-            {/*    </Text>}*/}
+            {!answer &&
+            <View>
+                <CButton onPress={() =>  answerFunction(false)} title='Зей прав, снимаем облицовку'/>
+                <CButton onPress={() =>  answerFunction(true)} title='Гай прав, облицовку не снимаем'/>
+            </View>
+            }
 
-            {/*</View>}*/}
-            {/*<View style={styles.thirdButton}>*/}
-            {/*</View>*/}
-            {/*{openHelp && <View style={styles.textInfoWrapper}>*/}
-            {/*    <Text style={styles.textInfo}>*/}
-            {/*       Я купил машину, должны ли мне передать колёса от машины? Ответ очевиден - да*/}
-            {/*    </Text>*/}
-            {/*</View>}*/}
+            {answer && <View style={styles.center}>
+                {answerBool ?
+                    <View>
+                    <Text style={styles.textInfoCorrectly}>Решение правильное.</Text>
+                    <Text style={styles.textInfo}>Если ты прочитал теорию, то сразу понял, что дом - это собирательная вещь,
+                     облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома,
+                    это и есть по сути дом, поэтому Гай конечно же прав. То же самое, если бы Зей сказал, что не передаст крышу
+                    или стену, она видите ли дорогая. Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,
+                    он не является частью дома и его продают отдельно, его требовать нельзя.</Text>
+                </View>
+                    :
+                    <View>
+                    <Text style={styles.textInfoWrong}>Решение неправильное. </Text>
+                     <Text style={styles.textInfo}>Если ты прочитал теорию, то сразу понял, что дом - это собирательная вещь,
+                    облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома,
+                    это и есть по сути дом, поэтому Гай конечно же прав. То же самое, если бы Зей сказал, что не передаст крышу
+                    или стену, она видите ли дорогая. Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,
+                    он не является частью дома и его продают отдельно, его требовать нельзя.</Text>
+                    </View>}
+                    </View>}
 
             {openTheory ?   <CButton onPress={() =>  changeOpenTheory(false)} title='Закрыть теорию'/>
             : <CButton onPress={() =>  changeOpenTheory(true)} title='Открыть теорию'/> }
-
-
-
 
             {openTheory && <View style={styles.textInfoWrapper}>
                 <Text style={styles.textInfo}>
@@ -137,7 +107,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
-
+    textInfoCorrectly: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'green'
+    },
+    textInfoWrong: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'red'
+    },
     textInfoWrapper: {
         marginRight: 10,
         marginBottom: 5,
