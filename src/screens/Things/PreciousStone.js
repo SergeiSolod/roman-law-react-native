@@ -1,104 +1,76 @@
 import React, {useState} from "react";
-import {View, Text, StyleSheet, Button,SafeAreaView, ScrollView, TouchableOpacity} from 'react-native'
-import { THEME } from '../../theme'
+import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
+import CButton from "../../components/CButton";
 
 const PreciousStone = () => {
+
+    const [openTheory, changeOpenTheory] = useState(false);
     const [answer, changeAnswer] = useState(false);
     const [answerBool, changeAnswerBool] = useState(false);
-    const [openInfo, changeOpenInfo] = useState(false);
-    const [openHelp, changeOpenHelp] = useState(false);
 
-    function trueAnswerFunction() {
+    function answerFunction(bool) {
+        changeAnswerBool(bool)
         changeAnswer(true)
-        changeAnswerBool(true)
-    }
-
-    function falseAnswerFunction() {
-        changeAnswer(false)
-        changeAnswerBool(false)
-    }
-
-    function openInfoFunction() {
-        if (openInfo) {
-            changeOpenInfo(false)
-        } else {
-            changeOpenInfo(true)
-        }
-    }
-
-    function openHelpFunction() {
-        if (openHelp) {
-            changeOpenHelp(false)
-        } else {
-            changeOpenHelp(true)
-        }
     }
 
     return (
         <SafeAreaView>
             <ScrollView>
-        <View style={styles.top}>
-            <Text style={styles.textTask}>
-                Трём братьям достался по наследству драгоценный камень. Они пожелали разделить наследство. Один из них потребовал распилить большой камень на маленькие. Правомерно ли требование?
-                <Text style={styles.textQuestion}>
-                    Что должен решить претор?
-                </Text>
-            </Text>
+                <View style={styles.textTaskWrapper}>
+                    <Text style={styles.textTask}>
+                        Зей, передавая Гаю дом во исполнение купли-продажи, приказал снять дорогую мраморную облицовку полов,
+                        мотивируя тем, что при заключении договора речь шла о доме, а об облицовке дома ничего не сказано.
+                    </Text>
+                    <Text style={styles.textQuestion}>
+                        Как следует решить дело?
+                    </Text>
+                </View>
 
-            {!answer &&
-            <View>
-                <Button  title='Прав первый брат, не делим' onPress={trueAnswerFunction}/>
-            <View style={styles.secondButton}>
-            <Button   title='Прав второй брат, делим' onPress={falseAnswerFunction}/>
-            </View>
-            </View>
-            }
+                {!answer &&
+                <View>
+                    <CButton onPress={() =>  answerFunction(false)} title='Зей прав, снимаем облицовку'/>
+                    <CButton onPress={() =>  answerFunction(true)} title='Гай прав, облицовку не снимаем'/>
+                </View>
+                }
 
-            {answer && <View style={styles.center}>
-                {answerBool ? <Text style={styles.textInfo}>
-                    Решение правильное, молодец. Камень - простая вещь, её нельзя делить, он если будет разделён, уже не будет представлять такой ценности, как целый
-                </Text> : <Text style={styles.textInfo}>
-                    Решение неправильное... Камень - простая вещь, её нельзя делить, он если будет разделён, уже не будет представлять такой ценности, как целый
+                {answer && <View style={styles.center}>
+                    <View>
+                        {answerBool ?<Text style={styles.textInfoCorrectly}>Решение правильное.</Text> : <Text style={styles.textInfoWrong}>Решение неправильное. </Text>}
+                        <Text style={styles.textInfo}>
+                            В теории ниже сказано, какие бывают виды вещей в римском праве. Дом - это собирательная вещь,
+                            облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома, как, например,
+                            стена, крыша дома, нельзя продать дом, не продав крышу, потому что она часть дома, она и есть дом, поэтому Гай прав.
+                            Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,
+                            он не является частью дома, его требовать нельзя.</Text>
+                    </View>
+                </View>}
 
-                </Text>}
+                {openTheory ?   <CButton onPress={() =>  changeOpenTheory(false)} title='Закрыть теорию'/>
+                    : <CButton onPress={() =>  changeOpenTheory(true)} title='Открыть теорию'/> }
 
-            </View>}
-            <View style={styles.thirdButton}>
-            <Button  title={openHelp ? 'Закрыть подсказку' : 'Посмотреть подсказку'} onPress={openHelpFunction}/>
-            </View>
-            {openHelp && <View style={styles.textInfoWrapper}>
-                <Text style={styles.textInfo}>
-                   Можно ли разделить раба?
-                </Text>
-            </View>}
-
-            <Button  title={openInfo ? 'Закрыть теорию' : 'Посмотреть теорию'} onPress={openInfoFunction}/>
-
-
-            {openInfo && <View style={styles.textInfoWrapper}>
-                <Text style={styles.textInfo}>
-                    В римском праве вещи бывают простые, сложные и составные.
-                </Text>
-                <Text style={styles.textInfo}>
-                    Простые вещи представляют собой естественное единство: раб, животное, статуя
-                </Text>
-                <Text style={styles.textInfo}>
-                    Составные (сложные) вещи состоят из нескольких простых и (или) сложных вещей,
-                    материально соединенных между собой: строение,
-                    корабль, телега. Если простая вещь, которая имеет свой правовой режим,
-                    становится частью составной вещи, она подпадает под режим этой последней.
-                    Но если составная вещь распадается, выделившаяся из нее простая вещь
-                    возвращается к своему изначальному режиму (например, чужие материалы,
-                    использованные для постройки на собственной земле).
-                </Text>
-                <Text style={styles.textInfo}>
-                    Собирательные вещи состоят из
-                    нескольких простых и (или) сложных вещей, соединенных между собой не
-                    материально, а лишь общим назначением: стадо овец, поместье (включающее
-                    земельный участок, все постройки на нем)
-                </Text>
-            </View>}
-        </View>
+                {openTheory && <View style={styles.textInfoWrapper}>
+                    <Text style={styles.textInfo}>
+                        В римском праве вещи бывают простые, сложные и составные.
+                    </Text>
+                    <Text style={styles.textInfo}>
+                        Простые вещи представляют собой естественное единство: раб, животное, статуя
+                    </Text>
+                    <Text style={styles.textInfo}>
+                        Составные (сложные) вещи состоят из нескольких простых и (или) сложных вещей,
+                        материально соединенных между собой: строение,
+                        корабль, телега. Если простая вещь, которая имеет свой правовой режим,
+                        становится частью составной вещи, она подпадает под режим этой последней.
+                        Но если составная вещь распадается, выделившаяся из нее простая вещь
+                        возвращается к своему изначальному режиму (например, чужие материалы,
+                        использованные для постройки на собственной земле).
+                    </Text>
+                    <Text style={styles.textInfo}>
+                        Собирательные вещи состоят из
+                        нескольких простых и (или) сложных вещей, соединенных между собой не
+                        материально, а лишь общим назначением: стадо овец, поместье (включающее
+                        земельный участок, все постройки на нем)
+                    </Text>
+                </View>}
             </ScrollView>
         </SafeAreaView>
     )
@@ -109,24 +81,37 @@ PreciousStone.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
-    top: {
+    textTaskWrapper: {
+        marginRight: 10,
+        marginLeft: 10,
+        marginTop: 7,
+        marginBottom: 7,
         flex: 1,
     },
-    secondButton: {
-        marginTop: 5,
-        marginBottom: 5,
+    textTask: {
+        fontSize: 20,
+        textAlign: 'center'
     },
-    buttonInfo: {
-        marginLeft: 10,
-        marginRight: 10,
+    textQuestion: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
+    textInfoCorrectly: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'green'
+    },
+    textInfoWrong: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'red'
     },
     textInfoWrapper: {
-
         marginRight: 10,
         marginBottom: 5,
-    },
-    thirdButton: {
-      marginBottom: 4
     },
     textInfo: {
         fontSize: 19,
@@ -134,18 +119,9 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         marginLeft: 10,
     },
-    textTask: {
-        fontSize: 20,
-        marginRight: 10,
-        marginLeft: 10,
-        marginTop: 7,
-        marginBottom: 7,
-        flex: 1,
-        textAlign: 'center'
-    },
-    textQuestion: {
+    boldText: {
         fontWeight: 'bold'
-    }
+    },
 })
 
 export default PreciousStone;
