@@ -17,7 +17,6 @@ const CTextTheory = ({ theory }) => (
 var styles = StyleSheet.create({
     textInfo: {
         fontSize: 19,
-        marginTop: 6,
         marginBottom: 13,
         marginLeft: 10,
     },
