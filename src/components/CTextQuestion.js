@@ -13,7 +13,6 @@ var styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-        marginTop: 6,
         marginBottom: 8,
     },
 });
