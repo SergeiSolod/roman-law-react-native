@@ -37,7 +37,7 @@ const ContractOfSaleTheory = () => {
 };
 
 ContractOfSaleTheory.navigationOptions = {
-    headerTitle: 'Теория: вещи'
+    headerTitle: 'Теория: купля-продажа'
 }
 
 const styles = StyleSheet.create({
