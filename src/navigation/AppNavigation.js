@@ -14,6 +14,7 @@ import WorkAgreementTheory from "../screens/WorkAgreement/WorkAgreementTheory";
 import Sculpture from "../screens/WorkAgreement/Sculpture";
 import BurntNecklace from "../screens/WorkAgreement/BurntNecklace";
 import BurnedOutShip from "../screens/WorkAgreement/BurnedOutShip";
+import LostCrope from "../screens/ContractOfSale/LostCrop";
 
 
 const PostNavigator = createStackNavigator(
@@ -28,6 +29,7 @@ const PostNavigator = createStackNavigator(
         ShipsInTheStorm: ShipsInTheStorm,
         CookSlave: CookSlave,
         AppleOrchard: AppleOrchard,
+        LostCrope: LostCrope,
 
         WorkAgreementTheory: WorkAgreementTheory,
         Sculpture: Sculpture,
