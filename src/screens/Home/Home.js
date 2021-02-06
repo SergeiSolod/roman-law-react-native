@@ -1,18 +1,33 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native'
-import {THEME} from '../../theme'
+import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
 import CButton from "../../components/CButton";
 
 const Home = (props) => {
     return (
-        <View>
+        <SafeAreaView>
+            <ScrollView>
             <Text style={styles.headerText}>
                 Вещи
             </Text>
             <CButton onPress={() =>  props.navigation.navigate('ThingsTheory')} title={'Теория: вещи'}/>
             <CButton onPress={() =>  props.navigation.navigate('HouseCladding')} title={'Облицовка дома'}/>
             <CButton onPress={() =>  props.navigation.navigate('PreciousStone')} title={'Драгоценный камень'}/>
-        </View>
+            <Text style={styles.headerText}>
+                Купля-продажа
+            </Text>
+            <CButton onPress={() =>  props.navigation.navigate('ContractOfSaleTheory')} title={'Теория: купля-продажа'}/>
+            <CButton onPress={() =>  props.navigation.navigate('ShipsInTheStorm')} title={'Корабли в шторме'}/>
+            <CButton onPress={() =>  props.navigation.navigate('CookSlave')} title={'Раб повар'}/>
+            <CButton onPress={() =>  props.navigation.navigate('AppleOrchard')} title={'Яблоневый сад'}/>
+            <Text style={styles.headerText}>
+                Подряд
+            </Text>
+            <CButton onPress={() =>  props.navigation.navigate('WorkAgreementTheory')} title={'Теория: подряд'}/>
+            <CButton onPress={() =>  props.navigation.navigate('BurnedOutShip')} title={'Сгоревший корабль'}/>
+            <CButton onPress={() =>  props.navigation.navigate('BurntNecklace')} title={'Сгоревшее ожерелье'}/>
+             <CButton onPress={() =>  props.navigation.navigate('Sculpture')} title={'Скульптура'}/>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
