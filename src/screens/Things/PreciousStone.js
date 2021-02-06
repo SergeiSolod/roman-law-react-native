@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
+import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
 import CButton from "../../components/CButton";
 import CTextTask from "../../components/CTextTask";
 import CTextQuestion from "../../components/CTextQuestion";
@@ -7,12 +7,6 @@ import CTrueFalse from "../../components/CTrueFalse";
 import CTextTheory from "../../components/CTextTheory";
 
 const PreciousStone = () => {
-    const [answer, changeAnswer] = useState(false);
-    const [answerBool, changeAnswerBool] = useState(false);
-    function answerFunction(bool) {
-        changeAnswerBool(bool)
-        changeAnswer(true)
-    }
     const task = ['Трём братьям достался по наследству драгоценный камень. Они пожелали разделить наследство. Один из них потребовал распилить большой камень на маленькие.']
     const question = 'Как следует решить дело?'
     const firstAnswer = 'Можно распилить'
@@ -23,6 +17,13 @@ const PreciousStone = () => {
         'Другая ситуация была бы, если бы делили мешки пшеницы, 100 мешков пшеницы можно разделить как угодно, 50 на 50, 30 на 70 и так далее.',
         'Но как решить задачу в конечном счёте? Нужно продать драгоценный камень и полученные деньги разделить (деньги - вещь делимая), либо один из братьев забирает камень себе, а остальным платит деньги за их части.'
     ]
+
+    const [answer, changeAnswer] = useState(false);
+    const [answerBool, changeAnswerBool] = useState(false);
+    function answerFunction(bool) {
+        changeAnswerBool(bool)
+        changeAnswer(true)
+    }
     return (
         <SafeAreaView>
             <ScrollView>
@@ -62,9 +63,6 @@ const styles = StyleSheet.create({
     textInfoWrapper: {
         marginRight: 10,
         marginBottom: 5,
-    },
-    boldText: {
-        fontWeight: 'bold'
     },
 })
 
