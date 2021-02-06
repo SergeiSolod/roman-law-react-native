@@ -13,13 +13,15 @@ var styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-        color: 'green'
+        color: 'green',
+        marginBottom: 9
     },
     textInfoWrong: {
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-        color: 'red'
+        color: 'red',
+        marginBottom: 9
     },
 });
 
