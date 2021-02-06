@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
 import CButton from "../../components/CButton";
 
-const HouseCladding = () => {
+const HouseCladding = (props) => {
 
     const [openTheory, changeOpenTheory] = useState(false);
     const [answer, changeAnswer] = useState(false);
@@ -26,12 +26,12 @@ const HouseCladding = () => {
             </Text>
         </View>
 
-            {!answer &&
-            <View>
-                <CButton onPress={() =>  answerFunction(false)} title='Зей прав, снимаем облицовку'/>
-                <CButton onPress={() =>  answerFunction(true)} title='Гай прав, облицовку не снимаем'/>
-            </View>
-            }
+                {!answer &&
+                <View>
+                    <CButton onPress={() =>  answerFunction(false)} title='Зей прав, снимаем облицовку'/>
+                    <CButton onPress={() =>  answerFunction(true)} title='Гай прав, облицовку не снимаем'/>
+                </View>
+                }
 
             {answer && <View style={styles.center}>
                     <View>
@@ -112,14 +112,13 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     textInfoWrapper: {
-        marginTop: 10,
         marginRight: 10,
         marginBottom: 5,
     },
     textInfo: {
         fontSize: 19,
         marginTop: 6,
-        marginBottom: 8,
+        marginBottom: 13,
         marginLeft: 10,
     },
     boldText: {
