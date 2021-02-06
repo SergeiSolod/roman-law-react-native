@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
 import CButton from "../../components/CButton";
+import CTextTask from "../../components/CTextTask";
+import CTextQuestion from "../../components/CTextQuestion";
 
 const PreciousStone = () => {
-
-    const [openTheory, changeOpenTheory] = useState(false);
     const [answer, changeAnswer] = useState(false);
     const [answerBool, changeAnswerBool] = useState(false);
 
@@ -17,59 +17,33 @@ const PreciousStone = () => {
         <SafeAreaView>
             <ScrollView>
                 <View style={styles.textTaskWrapper}>
-                    <Text style={styles.textTask}>
-                        Зей, передавая Гаю дом во исполнение купли-продажи, приказал снять дорогую мраморную облицовку полов,
-                        мотивируя тем, что при заключении договора речь шла о доме, а об облицовке дома ничего не сказано.
-                    </Text>
-                    <Text style={styles.textQuestion}>
-                        Как следует решить дело?
-                    </Text>
+                <CTextTask text={'Трём братьям достался по наследству драгоценный камень. Они пожелали разделить наследство. Один из них потребовал распилить большой камень на маленькие.'}/>
+                <CTextQuestion text={'Как следует решить дело?'}/>
                 </View>
-
                 {!answer &&
                 <View>
-                    <CButton onPress={() =>  answerFunction(false)} title='Зей прав, снимаем облицовку'/>
-                    <CButton onPress={() =>  answerFunction(true)} title='Гай прав, облицовку не снимаем'/>
+                    <CButton onPress={() =>  answerFunction(false)} title='Можно распилить'/>
+                    <CButton onPress={() =>  answerFunction(true)} title='Нельзя распилить'/>
                 </View>
                 }
-
                 {answer && <View style={styles.center}>
                     <View>
                         {answerBool ?<Text style={styles.textInfoCorrectly}>Решение правильное.</Text> : <Text style={styles.textInfoWrong}>Решение неправильное. </Text>}
+                            <Text style={styles.textInfo}>
+                               В римском праве вещи также подразделяются на делимые и неделимые. К делимым относились вещи, которые при их разделении не меняли своей ценности (земельные участки, строения). Неделимые — вещи, которые материально разделить нельзя.
+                            </Text>
+                            <Text style={styles.textInfo}>
+                                Разделение вещей на делимые и неделимые имело первостепенное значение, так как если право собственности на вещь принадлежало нескольким лицам и право собственности прекращалось, то делимые вещи распределялись в равных долях между собственниками, а если вещь была неделимой, то она оставалась в собственности одного лица, а другие получали денежную компенсацию;
+                            </Text>
+                            <Text style={styles.textInfo}>
+                            Драгоценный камень - вещь неделимая, потому что при разделении он потеряет в стоимости, был один большой красивый драгоценный камень, а будет 3 обрубка, один камень большой будет стоить дороже.
+                                 Другая ситуация была бы, если бы делили мешки пшеницы, 100 мешков пшеницы можно разделить как угодно, 50 на 50, 30 на 70 и так далее.
+                            </Text>
                         <Text style={styles.textInfo}>
-                            В теории ниже сказано, какие бывают виды вещей в римском праве. Дом - это собирательная вещь,
-                            облицовка - это часть дома, если продаётся дом, то продаётся и облицовка в том числе, потому что это часть дома, как, например,
-                            стена, крыша дома, нельзя продать дом, не продав крышу, потому что она часть дома, она и есть дом, поэтому Гай прав.
-                            Другое дело, если бы речь шла, например, о сундуке. Сундук - вещь самостоятельная, отдельная,
-                            он не является частью дома, его требовать нельзя.</Text>
-                    </View>
-                </View>}
-
-                {openTheory ?   <CButton onPress={() =>  changeOpenTheory(false)} title='Закрыть теорию'/>
-                    : <CButton onPress={() =>  changeOpenTheory(true)} title='Открыть теорию'/> }
-
-                {openTheory && <View style={styles.textInfoWrapper}>
-                    <Text style={styles.textInfo}>
-                        В римском праве вещи бывают простые, сложные и составные.
-                    </Text>
-                    <Text style={styles.textInfo}>
-                        Простые вещи представляют собой естественное единство: раб, животное, статуя
-                    </Text>
-                    <Text style={styles.textInfo}>
-                        Составные (сложные) вещи состоят из нескольких простых и (или) сложных вещей,
-                        материально соединенных между собой: строение,
-                        корабль, телега. Если простая вещь, которая имеет свой правовой режим,
-                        становится частью составной вещи, она подпадает под режим этой последней.
-                        Но если составная вещь распадается, выделившаяся из нее простая вещь
-                        возвращается к своему изначальному режиму (например, чужие материалы,
-                        использованные для постройки на собственной земле).
-                    </Text>
-                    <Text style={styles.textInfo}>
-                        Собирательные вещи состоят из
-                        нескольких простых и (или) сложных вещей, соединенных между собой не
-                        материально, а лишь общим назначением: стадо овец, поместье (включающее
-                        земельный участок, все постройки на нем)
-                    </Text>
+                        Но как решить задачу в конечном счёте? Нужно продать драгоценный камень
+                        и полученные деньги разделить (деньги - вещь делимая), либо один из братьев забирает камень себе, а остальным платит деньги за их части.
+                        </Text>
+                        </View>
                 </View>}
             </ScrollView>
         </SafeAreaView>
@@ -87,15 +61,6 @@ const styles = StyleSheet.create({
         marginTop: 7,
         marginBottom: 7,
         flex: 1,
-    },
-    textTask: {
-        fontSize: 20,
-        textAlign: 'center'
-    },
-    textQuestion: {
-        fontSize: 20,
-        textAlign: 'center',
-        fontWeight: 'bold'
     },
     textInfoCorrectly: {
         fontSize: 20,
@@ -116,7 +81,7 @@ const styles = StyleSheet.create({
     textInfo: {
         fontSize: 19,
         marginTop: 6,
-        marginBottom: 8,
+        marginBottom: 13,
         marginLeft: 10,
     },
     boldText: {
